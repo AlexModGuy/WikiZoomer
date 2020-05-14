@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "wikizoomer:block/item_zoomer"
+    }
+  }
+}

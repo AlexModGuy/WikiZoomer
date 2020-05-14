@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "wikizoomer:entity_zoomer"
+    }
+  }
+}

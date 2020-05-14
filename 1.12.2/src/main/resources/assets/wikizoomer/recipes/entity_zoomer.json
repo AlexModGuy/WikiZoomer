@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " D ",
+    " C ",
+    "SSS"
+  ],
+  "key": {
+    "D": {
+      "type": "forge:ore_dict",
+      "ore": "gemEmerald"
+    },
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stone"
+    },
+    "C": {
+      "type": "forge:ore_dict",
+      "ore": "cobblestone"
+    }
+  },
+  "result": {
+    "item": "wikizoomer:entity_zoomer"
+  }
+}
