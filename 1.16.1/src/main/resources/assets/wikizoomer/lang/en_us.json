@@ -1,0 +1,13 @@
+{
+  "item.wikizoomer.entity_binder": "Entity Info",
+  "item.wikizoomer.entity_binder.desc": "Right click on entity to bind",
+  "gui.wikizoomer.close": "Close",
+  "gui.wikizoomer.greenscreen": "Toggle Greenscreen",
+  "gui.wikizoomer.zoom": "Zoom",
+  "block.wikizoomer.item_zoomer": "Item Zoomer",
+  "block.wikizoomer.entity_zoomer": "Entity Zoomer",
+  "block.wikizoomer.item_zoomer.desc0": "Right click with Item/Block to set",
+  "block.wikizoomer.item_zoomer.desc1": "Shift right click to open render",
+  "block.wikizoomer.entity_zoomer.desc0": "Right click with Entity Info to set",
+  "block.wikizoomer.entity_zoomer.desc1": "Shift right click to open render"
+}

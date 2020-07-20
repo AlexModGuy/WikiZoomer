@@ -1,0 +1,14 @@
+modLoader="javafml" #mandatory
+loaderVersion="[32,)" #mandatory (26 is current forge version)
+[[mods]] #mandatory
+modId="wikizoomer" #mandatory
+version="1.0.0" #mandatory
+displayName="Wiki Zoomer" #mandatory
+displayURL="https://github.com/Alex-the-666/WikiZoomer" #optional
+logoFile="wikizoomer.png" #optional
+credits="" #optional
+authors="Alexthe666" #optional
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+A mod which adds blocks that allow players to take isometric screenshots of items, blocks and entities.
+'''
