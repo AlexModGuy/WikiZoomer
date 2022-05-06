@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BBB",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:rods/wooden"
+    },
+    "B": {
+      "item": "wikizoomer:entity_binder"
+    }
+  },
+  "result": {
+    "item": "wikizoomer:data_copier"
+  }
+}
