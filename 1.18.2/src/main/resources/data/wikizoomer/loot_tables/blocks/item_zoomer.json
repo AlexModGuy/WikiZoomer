@@ -1,0 +1,1 @@
+{  "type": "minecraft:block",  "pools": [    {      "name": "item_zoomer",      "rolls": 1,      "entries": [        {          "type": "minecraft:item",          "name": "wikizoomer:item_zoomer"        }      ],      "conditions": [        {          "condition": "minecraft:survives_explosion"        }      ]    }  ]}
