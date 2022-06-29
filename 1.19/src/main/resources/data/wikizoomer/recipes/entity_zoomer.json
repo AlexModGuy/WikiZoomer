@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    " C ",
+    "SSS"
+  ],
+  "key": {
+    "D": {
+      "tag": "forge:gems/emerald"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    },
+    "C": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "wikizoomer:entity_zoomer"
+  }
+}
