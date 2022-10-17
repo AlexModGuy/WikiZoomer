@@ -95,7 +95,7 @@ public class GuiEntityZoomer extends Screen {
         if(screenshot){
             screenshot = false;
             Entity renderEntity = zoomerBase.getCachedEntity();
-            String name = renderEntity == null ? "none" : ForgeRegistries.ENTITIES.getKey(renderEntity.getType()).getPath();
+            String name = renderEntity == null ? "none" : ForgeRegistries.ENTITY_TYPES.getKey(renderEntity.getType()).getPath();
             ScreenshotHelper.exportScreenshot(name, () -> {
                 renderFocus(new PoseStack());
             });

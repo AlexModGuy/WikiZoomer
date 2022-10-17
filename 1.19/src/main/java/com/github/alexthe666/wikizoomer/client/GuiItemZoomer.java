@@ -102,6 +102,12 @@ public class GuiItemZoomer extends Screen {
             }
             super.render(stack, mouseX, mouseY, partialTicks);
             renderFocus(RenderSystem.getModelViewStack());
+            int i = (this.width - 248) / 2 + 10;
+            int j = (this.height - 166) / 2 + 8;
+            if(mouseX > (i - sliderValue) && mouseX < (i + sliderValue) && mouseY > (j - sliderValue) && mouseY < (j + sliderValue)){
+                ItemStack itemStack = zoomerBase.getItem(0);
+                renderTooltip(stack, itemStack, -500, -500);
+            }
         }
 
     }
