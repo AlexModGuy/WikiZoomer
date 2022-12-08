@@ -4,14 +4,13 @@ import com.github.alexthe666.wikizoomer.BlockZoomer;
 import com.github.alexthe666.wikizoomer.ClientProxy;
 import com.github.alexthe666.wikizoomer.tileentity.TileEntityEntityZoomer;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Quaternion;
-import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import org.joml.Quaternionf;
 
 public class RenderEntityZoomer implements BlockEntityRenderer<TileEntityEntityZoomer> {
 
@@ -30,7 +29,7 @@ public class RenderEntityZoomer implements BlockEntityRenderer<TileEntityEntityZ
         matrixStackIn.pushPose();
         matrixStackIn.translate(0.5D, 1.0D, 0.5D);
         matrixStackIn.pushPose();
-        matrixStackIn.mulPose(new Quaternion(Vector3f.YP, rrr * 2F, true));
+        matrixStackIn.mulPose(new Quaternionf().rotationY((float) Math.toRadians(rrr * 2F)));
         matrixStackIn.translate(0D, 0.1F + Math.sin(rrr * 0.05F) * 0.1F, 0D);
         matrixStackIn.scale(0.5F, 0.5F, 0.5F);
         if(renderEntity != null){

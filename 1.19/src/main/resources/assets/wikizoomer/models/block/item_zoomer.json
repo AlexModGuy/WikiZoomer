@@ -1,5 +1,6 @@
 {
 	"parent": "block/block",
+	"render_type": "cutout",
 	"textures": {
 		"0": "wikizoomer:block/item_zoomer_side",
 		"1": "wikizoomer:block/item_zoomer_top",

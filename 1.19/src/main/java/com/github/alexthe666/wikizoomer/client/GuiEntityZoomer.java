@@ -5,8 +5,8 @@ import com.github.alexthe666.wikizoomer.tileentity.TileEntityEntityZoomer;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Quaternion;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
+import org.joml.Quaternionf;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
@@ -23,6 +23,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.gui.widget.ForgeSlider;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.joml.Vector3f;
 
 @OnlyIn(Dist.CLIENT)
 public class GuiEntityZoomer extends Screen {
@@ -58,21 +59,21 @@ public class GuiEntityZoomer extends Screen {
                 GuiEntityZoomer.this.setSliderValue(2, (float)getValue());
             }
         });
-        this.addRenderableWidget(new Button(i - maxLength / 2, j + 180, maxLength, 20, greenscreen, (p_214132_1_) -> {
+        this.addRenderableWidget(Button.builder(greenscreen, (button) -> {
             GuiEntityZoomer.this.greenscreen = !GuiEntityZoomer.this.greenscreen;
-        }));
-        this.addRenderableWidget(new Button(i - maxLength / 2 + 140, j + 180, maxLength, 20, exit, (p_214132_1_) -> {
+        }).size(maxLength, 20).pos(i - maxLength / 2, j + 180).build());
+        this.addRenderableWidget(Button.builder(exit, (button) -> {
             Minecraft.getInstance().setScreen(null);
-        }));
-        this.addRenderableWidget(new Button(i - maxLength / 2 + 140, j + 160, maxLength, 20, export, (p_214132_1_) -> {
+        }).size(maxLength, 20).pos(i - maxLength / 2 + 140, j + 180).build());
+        this.addRenderableWidget(Button.builder(export, (button) -> {
             screenshot = true;
-        }));
-        this.addRenderableWidget(new Button(i - 120 / 2 - 140, j + 160, 20, 20, Component.translatable("/\\"), (p_214132_1_) -> {
+        }).size(maxLength, 20).pos(i - maxLength / 2 + 140, j + 160).build());
+        this.addRenderableWidget(Button.builder(Component.translatable("/\\"), (button) -> {
             yOffset -= 5;
-        }));
-        this.addRenderableWidget(new Button(i - 120 / 2 - 120, j + 160, 20, 20, Component.translatable("\\/"), (p_214132_1_) -> {
+        }).size(20, 20).pos(i - 120 / 2 - 140, j + 160).build());
+        this.addRenderableWidget(Button.builder(Component.translatable("\\/"), (button) -> {
             yOffset += 5;
-        }));
+        }).size(20, 20).pos(i - 120 / 2 - 120, j + 160).build());
     }
 
     public void renderGreenscreen(int z) {
@@ -148,15 +149,15 @@ public class GuiEntityZoomer extends Screen {
         float f = (float) Math.atan(-mouseX / 40.0F);
         float f1 = (float) Math.atan(mouseY / 40.0F);
         float partialTicksForRender = Minecraft.getInstance().getFrameTime();
-        matrixstack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
+        matrixstack.mulPose(Axis.ZP.rotationDegrees(180.0F));
         matrixstack.scale(scale, scale, scale);
         entity.setOnGround(false);
         float partialTicks = Minecraft.getInstance().getFrameTime();
         RenderSystem.applyModelViewMatrix();
 
-        Quaternion quaternion1 = Vector3f.XP.rotationDegrees(30);
-        Quaternion quaternion2 = Vector3f.YP.rotationDegrees(45);
-        Quaternion quaternion = Vector3f.ZP.rotationDegrees(0.0F);
+        Quaternionf quaternion1 = Axis.XP.rotationDegrees(30);
+        Quaternionf quaternion2 = Axis.YP.rotationDegrees(45);
+        Quaternionf quaternion = Axis.ZP.rotationDegrees(0.0F);
         quaternion.mul(quaternion1);
         matrixstack.mulPose(quaternion);
         matrixstack.mulPose(quaternion2);
@@ -166,7 +167,7 @@ public class GuiEntityZoomer extends Screen {
         RenderSystem.setShaderLights(INVENTORY_DIFFUSE_LIGHT_0, INVENTORY_DIFFUSE_LIGHT_1);
 
         EntityRenderDispatcher entityrenderdispatcher = Minecraft.getInstance().getEntityRenderDispatcher();
-        quaternion1.conj();
+        quaternion1.conjugate();
         entityrenderdispatcher.overrideCameraOrientation(quaternion1);
         entityrenderdispatcher.setRenderShadow(false);
         MultiBufferSource.BufferSource multibuffersource$buffersource = Minecraft.getInstance().renderBuffers().bufferSource();

@@ -1,7 +1,9 @@
 package com.github.alexthe666.wikizoomer;
 
 import com.github.alexthe666.wikizoomer.tileentity.TileEntityRegistry;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +21,7 @@ public class WikiZoomerMod {
     public WikiZoomerMod() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::registerTabItems);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(PROXY);
         ItemAndBlockRegistry.ITEMS.register(modEventBus);
@@ -30,4 +33,10 @@ public class WikiZoomerMod {
         PROXY.setup();
     }
 
+    private void registerTabItems(final CreativeModeTabEvent.BuildContents event) {
+        event.registerSimple(CreativeModeTabs.FUNCTIONAL_BLOCKS, ItemAndBlockRegistry.ITEM_ZOOMER_BLOCK_ITEM.get());
+        event.registerSimple(CreativeModeTabs.FUNCTIONAL_BLOCKS, ItemAndBlockRegistry.ENTITY_ZOOMER_BLOCK_ITEM.get());
+        event.registerSimple(CreativeModeTabs.TOOLS_AND_UTILITIES, ItemAndBlockRegistry.ENTITY_BINDER_ITEM.get());
+        event.registerSimple(CreativeModeTabs.TOOLS_AND_UTILITIES, ItemAndBlockRegistry.DATA_COPIER.get());
+    }
 }

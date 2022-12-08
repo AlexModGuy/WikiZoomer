@@ -20,7 +20,7 @@ import java.util.List;
 public class ItemDataCopier extends Item {
 
     public ItemDataCopier() {
-        super(new Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1));
+        super(new Properties().stacksTo(1));
     }
 
 

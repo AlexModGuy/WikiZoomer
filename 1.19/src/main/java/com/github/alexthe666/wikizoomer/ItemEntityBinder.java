@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.Optional;
 public class ItemEntityBinder extends Item {
 
     public ItemEntityBinder() {
-        super(new Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1));
+        super(new Properties().stacksTo(1));
     }
 
     public boolean hasEffect(ItemStack stack) {
@@ -72,7 +73,7 @@ public class ItemEntityBinder extends Item {
         CompoundTag nbt = stack.getTag() == null ? new CompoundTag() : stack.getTag();
         nbt.putBoolean("IsPlayerEntity", target instanceof Player);
         CompoundTag entityTag = target.serializeNBT();
-        entityTag.putString("id", Registry.ENTITY_TYPE.getKey(target.getType()).toString());
+        entityTag.putString("id", ForgeRegistries.ENTITY_TYPES.getKey(target.getType()).toString());
         nbt.put("EntityTag", entityTag);
         ItemStack stackReplacement = new ItemStack(this);
         if(!playerIn.isCreative()){

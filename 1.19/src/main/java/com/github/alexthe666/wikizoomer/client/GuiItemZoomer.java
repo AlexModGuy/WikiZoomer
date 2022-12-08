@@ -54,15 +54,16 @@ public class GuiItemZoomer extends Screen {
                 GuiItemZoomer.this.setSliderValue(2, (float)getValue());
             }
         });
-        this.addRenderableWidget(new Button(i - maxLength / 2, j + 180, maxLength, 20, greenscreen, (p_214132_1_) -> {
+
+        this.addRenderableWidget(Button.builder(greenscreen, (button) -> {
             GuiItemZoomer.this.greenscreen = !GuiItemZoomer.this.greenscreen;
-        }));
-        this.addRenderableWidget(new Button(i - maxLength / 2 + 140, j + 180, maxLength, 20, exit, (p_214132_1_) -> {
+        }).size(maxLength, 20).pos(i - maxLength / 2, j + 180).build());
+        this.addRenderableWidget(Button.builder(exit, (button) -> {
             Minecraft.getInstance().setScreen(null);
-        }));
-        this.addRenderableWidget(new Button(i - maxLength / 2 + 140, j + 160, maxLength, 20, export, (p_214132_1_) -> {
-            this.screenshot = true;
-        }));
+        }).size(maxLength, 20).pos(i - maxLength / 2 + 140, j + 180).build());
+        this.addRenderableWidget(Button.builder(export, (button) -> {
+            screenshot = true;
+        }).size(maxLength, 20).pos(i - maxLength / 2 + 140, j + 160).build());
     }
 
     public void renderGreenscreen(int z) {

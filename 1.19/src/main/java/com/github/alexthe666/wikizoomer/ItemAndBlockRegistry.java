@@ -18,7 +18,7 @@ public class ItemAndBlockRegistry {
     public static final RegistryObject<Item> DATA_COPIER = ITEMS.register("data_copier", () -> new ItemDataCopier());
     public static final RegistryObject<Block> ITEM_ZOOMER_BLOCK = BLOCKS.register("item_zoomer", () -> new BlockZoomer(true));
     public static final RegistryObject<Block> ENTITY_ZOOMER_BLOCK = BLOCKS.register("entity_zoomer", () -> new BlockZoomer(false));
-    public static final RegistryObject<Item> ITEM_ZOOMER_BLOCK_ITEM = ITEMS.register("item_zoomer", () -> new BlockItem(ItemAndBlockRegistry.ITEM_ZOOMER_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
-    public static final RegistryObject<Item> ENTITY_ZOOMER_BLOCK_ITEM = ITEMS.register("entity_zoomer", () -> new BlockItem(ItemAndBlockRegistry.ENTITY_ZOOMER_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+    public static final RegistryObject<Item> ITEM_ZOOMER_BLOCK_ITEM = ITEMS.register("item_zoomer", () -> new BlockItem(ItemAndBlockRegistry.ITEM_ZOOMER_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ENTITY_ZOOMER_BLOCK_ITEM = ITEMS.register("entity_zoomer", () -> new BlockItem(ItemAndBlockRegistry.ENTITY_ZOOMER_BLOCK.get(), new Item.Properties()));
 
 }

@@ -15,7 +15,9 @@ import org.lwjgl.opengl.GL30;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.nio.IntBuffer;
+import java.nio.file.Files;
 
 public class ScreenshotHelper {
 
@@ -42,7 +44,9 @@ public class ScreenshotHelper {
         bufferedimage.setRGB(0, 0, w, h, vals, 0, w);
         File file1 = new File(Minecraft.getInstance().gameDirectory, "screenshots/wikizoomer");
         if(!file1.exists()){
-            if(!file1.mkdir()){
+            try {
+                Files.createDirectories(file1.toPath());
+            } catch (IOException e) {
                 return;
             }
         }
@@ -57,7 +61,6 @@ public class ScreenshotHelper {
         try {
             f.createNewFile();
             ImageIO.write(bufferedimage, "png", f);
-
         } catch (Exception e) {
 
         }

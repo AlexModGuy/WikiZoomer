@@ -28,8 +28,6 @@ public class ClientProxy extends CommonProxy{
     public void setup() {
         BlockEntityRenderers.register(TileEntityRegistry.ITEM_ZOOMER_TE.get(), RenderItemZoomer::new);
         BlockEntityRenderers.register(TileEntityRegistry.ENTITY_ZOOMER_TE.get(), RenderEntityZoomer::new);
-        ItemBlockRenderTypes.setRenderLayer(ItemAndBlockRegistry.ITEM_ZOOMER_BLOCK.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ItemAndBlockRegistry.ENTITY_ZOOMER_BLOCK.get(), RenderType.cutout());
         ItemProperties.register(ItemAndBlockRegistry.ENTITY_BINDER_ITEM.get(), new ResourceLocation("bound"), (stack, a, b, c) -> {
             return ItemEntityBinder.isEntityBound(stack) ? 1 : 0;
         });
