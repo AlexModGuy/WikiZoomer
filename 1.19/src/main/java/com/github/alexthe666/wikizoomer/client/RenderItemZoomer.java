@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Quaternionf;
 
@@ -35,7 +36,7 @@ public class RenderItemZoomer implements BlockEntityRenderer<TileEntityItemZoome
         matrixStackIn.translate(0D, 0.1F + Math.sin(rrr * 0.05F) * 0.1F, 0D);
         matrixStackIn.scale(0.5F, 0.5F, 0.5F);
         BakedModel ibakedmodel = Minecraft.getInstance().getItemRenderer().getModel(stack, tileEntityIn.getLevel(), (LivingEntity)null, 0);
-        Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.FIXED, false, matrixStackIn, bufferIn, combinedLightIn, OverlayTexture.NO_OVERLAY, ibakedmodel);
+        Minecraft.getInstance().getItemRenderer().render(stack, ItemDisplayContext.FIXED, false, matrixStackIn, bufferIn, combinedLightIn, OverlayTexture.NO_OVERLAY, ibakedmodel);
         matrixStackIn.popPose();
         matrixStackIn.popPose();
 

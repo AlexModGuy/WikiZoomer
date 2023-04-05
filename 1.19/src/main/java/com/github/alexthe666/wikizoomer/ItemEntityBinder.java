@@ -85,7 +85,7 @@ public class ItemEntityBinder extends Item {
             ItemEntity itementity = playerIn.drop(stackReplacement, false);
             if (itementity != null) {
                 itementity.setNoPickUpDelay();
-                itementity.setOwner(playerIn.getUUID());
+                itementity.setThrower(playerIn.getUUID());
             }
         }
         return InteractionResult.SUCCESS;

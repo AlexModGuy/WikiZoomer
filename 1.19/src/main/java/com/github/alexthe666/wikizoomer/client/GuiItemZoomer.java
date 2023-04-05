@@ -7,11 +7,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.gui.widget.ForgeSlider;
@@ -102,7 +107,7 @@ public class GuiItemZoomer extends Screen {
 
             }
             super.render(stack, mouseX, mouseY, partialTicks);
-            renderFocus(RenderSystem.getModelViewStack());
+            renderFocus(stack);
             int i = (this.width - 248) / 2 + 10;
             int j = (this.height - 166) / 2 + 8;
             if(mouseX > (i - sliderValue) && mouseX < (i + sliderValue) && mouseY > (j - sliderValue) && mouseY < (j + sliderValue)){
@@ -122,9 +127,9 @@ public class GuiItemZoomer extends Screen {
         if (!itemStack.isEmpty()) {
             modelStack.pushPose();
             modelStack.translate(i, j, 10F);
-            modelStack.translate(113.5F - scale1 * 100, 76 - scale1 * 100, -10F - sliderValue * 10);
+            modelStack.translate(113.5F - scale1 * 100, 76 - scale1 * 100, 100F - sliderValue * 20);
             modelStack.scale(scale, scale, scale);
-            Minecraft.getInstance().getItemRenderer().renderGuiItem(itemStack, 0, 0);
+            Minecraft.getInstance().getItemRenderer().renderAndDecorateItem(modelStack, Minecraft.getInstance().player, itemStack, 0, 0, 1);
             modelStack.popPose();
         }
     }

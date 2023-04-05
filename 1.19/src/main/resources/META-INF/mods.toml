@@ -1,9 +1,9 @@
 modLoader="javafml" #mandatory
-loaderVersion="[44,)" #mandatory (26 is current forge version)
+loaderVersion="[45,)" #mandatory (26 is current forge version)
 license="GNU LESSER GENERAL PUBLIC LICENSE"
 [[mods]] #mandatory
 modId="wikizoomer" #mandatory
-version="1.2.0" #mandatory
+version="1.2.1" #mandatory
 displayName="Wiki Zoomer" #mandatory
 displayURL="https://github.com/Alex-the-666/WikiZoomer" #optional
 logoFile="wikizoomer.png" #optional

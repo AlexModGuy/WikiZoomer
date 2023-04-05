@@ -34,9 +34,13 @@ public class WikiZoomerMod {
     }
 
     private void registerTabItems(final CreativeModeTabEvent.BuildContents event) {
-        event.registerSimple(CreativeModeTabs.FUNCTIONAL_BLOCKS, ItemAndBlockRegistry.ITEM_ZOOMER_BLOCK_ITEM.get());
-        event.registerSimple(CreativeModeTabs.FUNCTIONAL_BLOCKS, ItemAndBlockRegistry.ENTITY_ZOOMER_BLOCK_ITEM.get());
-        event.registerSimple(CreativeModeTabs.TOOLS_AND_UTILITIES, ItemAndBlockRegistry.ENTITY_BINDER_ITEM.get());
-        event.registerSimple(CreativeModeTabs.TOOLS_AND_UTILITIES, ItemAndBlockRegistry.DATA_COPIER.get());
+        if(event.getTab() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(ItemAndBlockRegistry.ITEM_ZOOMER_BLOCK_ITEM.get());
+            event.accept(ItemAndBlockRegistry.ENTITY_ZOOMER_BLOCK_ITEM.get());
+        }
+        if(event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ItemAndBlockRegistry.ENTITY_BINDER_ITEM.get());
+            event.accept(ItemAndBlockRegistry.DATA_COPIER.get());
+        }
     }
 }
